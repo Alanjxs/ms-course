@@ -12,11 +12,13 @@
 	<artifactId>hr-payroll</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>hr-payroll</name>
-	<description>Worker microservice</description>
+	<description>Payroll Microservice</description>
+
 	<properties>
 		<java.version>11</java.version>
 		<spring-cloud.version>Hoxton.SR12</spring-cloud.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -38,18 +40,21 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
-		
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-loadbalancer</artifactId>
+			<artifactId>
+				spring-cloud-starter-netflix-eureka-client
+			</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<artifactId>
+				spring-cloud-starter-netflix-hystrix
+			</artifactId>
 		</dependency>
 	</dependencies>
 

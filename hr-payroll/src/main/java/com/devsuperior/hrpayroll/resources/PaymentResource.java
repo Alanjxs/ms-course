@@ -9,19 +9,26 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.devsuperior.hrpayroll.entities.Payment;
 import com.devsuperior.hrpayroll.services.PaymentService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 @RestController
 @RequestMapping(value = "/payments")
 public class PaymentResource {
-	
+
 	@Autowired
 	private PaymentService service;
 	
+	//O hystrix serve para quando houver alguma falha, por exemplo timeout ou serviço fora do ar
+	//fallbackMethod recebe o nome do método caso ocorra alguma falha neste método
+	@HystrixCommand(fallbackMethod = "getPaymentAlternative")
 	@GetMapping(value = "/{workerId}/days/{days}")
-	public ResponseEntity<Payment> getPayment(@PathVariable Long workerId, @PathVariable Integer days){
+	public ResponseEntity<Payment> getPayment(@PathVariable Long workerId, @PathVariable Integer days) {
 		Payment payment = service.getPayment(workerId, days);
 		return ResponseEntity.ok(payment);
-	}
+	}	
 	
-
+	public ResponseEntity<Payment> getPaymentAlternative(Long workerId, Integer days) {
+		Payment payment = new Payment("Brann", 400.0, days);
+		return ResponseEntity.ok(payment);
+	}
 }
