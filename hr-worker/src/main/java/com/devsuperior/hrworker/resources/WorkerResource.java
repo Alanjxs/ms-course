@@ -36,13 +36,13 @@ public class WorkerResource {
 	public ResponseEntity<Worker> findById(@PathVariable Long id) {
 		
 		/*
-		 * Teste para fazer a aplicação aguardar 3segundos(3000L)
+		 * Teste para fazer a aplicação aguardar 3segundos(3000L)*/
 		try {
 			Thread.sleep(3000L);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		
 		logger.info("PORT = " + env.getProperty("local.server.port"));
 		
