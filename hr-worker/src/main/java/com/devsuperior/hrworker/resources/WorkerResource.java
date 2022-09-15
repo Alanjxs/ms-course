@@ -33,7 +33,7 @@ public class WorkerResource {
 	@Autowired
 	private WorkerRepository repository;
 	
-	@GetMapping(value = "/configs")
+	@GetMapping(value = "/configs") //Criação de um subcaminho para chamar no postman
 	public ResponseEntity<Void> getConfigs() {
 		logger.info("CONFIG = " + testConfig);
 		return ResponseEntity.noContent().build();
