@@ -28,11 +28,11 @@ public class User implements Serializable{
 	private String password;
 	
 	//Set no java representa um conjunto e não aceita repetição dop mesmo valor
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER) // Os dados dos perfis será carregado automaticamente junto com o usuário.
 	@JoinTable(name = "tb_user_role",
 		joinColumns = @JoinColumn(name = "user_id"),
 		inverseJoinColumns = @JoinColumn(name = "role_id")
-	)
+	) //Tabela de associação do banco relacional
 	private Set<Role> roles = new HashSet<>();
 	
 	public User() {
