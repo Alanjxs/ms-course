@@ -11,6 +11,10 @@ import org.springframework.stereotype.Service;
 import com.devsuperior.hroauth.entities.User;
 import com.devsuperior.hroauth.feignclients.UserFeignClient;
 
+/*
+ * UserDetailsService é uma interface do spring secutiry para buscar o usuário no BD
+ * compara as senhas e verifica se está tudo ok
+ */
 @Service
 public class UserService implements UserDetailsService {
 

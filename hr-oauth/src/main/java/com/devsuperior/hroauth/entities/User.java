@@ -9,7 +9,9 @@ import java.util.stream.Collectors;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
+/*
+ * User Details é uma interface que tem vários métodos para oferecer informações do usuário
+ */
 public class User implements UserDetails, Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -96,6 +98,7 @@ public class User implements UserDetails, Serializable {
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return roles.stream().map(x -> new SimpleGrantedAuthority(x.getRoleName()))
 				.collect(Collectors.toList());
+		//map para converter cada elemento do tipo Role para um elemento do tipo GrantedAuthority
 	}
 
 	@Override
