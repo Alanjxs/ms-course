@@ -1,5 +1,6 @@
 package com.devsuperior.hroauth.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -9,6 +10,9 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 @Configuration
 public class AppConfig {
 	
+	
+	@Value("${jwt.secret}")
+	private String jwtSecret;
 	
 	/*
 	 * Criação de um Bean para evitar acessos não autorizado ao sistema
@@ -26,7 +30,7 @@ public class AppConfig {
 	@Bean
 	public JwtAccessTokenConverter accessTokenConverter() {
 		JwtAccessTokenConverter tokenConverter = new JwtAccessTokenConverter();
-		tokenConverter.setSigningKey("MY-SECRET-KEY");//chave secreta para assinar os tokens
+		tokenConverter.setSigningKey(jwtSecret);//chave secreta para assinar os tokens
 		return tokenConverter;
 	}
 	
