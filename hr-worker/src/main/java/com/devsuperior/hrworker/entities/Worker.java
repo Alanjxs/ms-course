@@ -8,7 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+/*
+ * Mapeamento JPA
+ * @Entity - Notation que é uma entidade monitorada pelo jpa
+ * @Table(name = "tb_worker") - nome da tabela no BD
+ */
 @Entity
 @Table(name = "tb_worker")
 public class Worker implements Serializable {
