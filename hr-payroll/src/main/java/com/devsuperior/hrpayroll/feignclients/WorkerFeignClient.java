@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.devsuperior.hrpayroll.entities.Worker;
 
-
+/*
+ * Interface com as assinaturas fas requisições a serem usadas via Feign
+ * Vantagem de estar integrado com outras ferramentas do spring cloud
+ */
 @Component
 @FeignClient(name ="hr-worker", path = "/workers")
 public interface WorkerFeignClient {
