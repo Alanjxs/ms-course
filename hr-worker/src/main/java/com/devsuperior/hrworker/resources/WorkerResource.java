@@ -53,6 +53,7 @@ public class WorkerResource {
 		return ResponseEntity.ok(list);
 	}	
 	
+	//Passando argumento pela requisição digitada na url
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Worker> findById(@PathVariable Long id) {
 		/*

@@ -11,6 +11,9 @@ import com.devsuperior.hrpayroll.entities.Payment;
 import com.devsuperior.hrpayroll.services.PaymentService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
+/*
+ * Resource para liberar um endpoint webservice
+ */
 @RestController
 @RequestMapping(value = "/payments")
 public class PaymentResource {
@@ -20,6 +23,7 @@ public class PaymentResource {
 	
 	//O hystrix serve para quando houver alguma falha, por exemplo timeout ou serviço fora do ar
 	//fallbackMethod recebe o nome do método caso ocorra alguma falha neste método
+	//Implementação de um endpoint
 	@HystrixCommand(fallbackMethod = "getPaymentAlternative")
 	@GetMapping(value = "/{workerId}/days/{days}")
 	public ResponseEntity<Payment> getPayment(@PathVariable Long workerId, @PathVariable Integer days) {
