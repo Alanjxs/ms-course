@@ -21,6 +21,8 @@ import com.devsuperior.hrworker.repositories.WorkerRepository;
  * Para funcionar como webservice precisa ter as anotações
  * @RestController
  * @RequestMapping(value = "/workers") - caminho padrão deste recurso
+ * @RefreshScope - inicializam quando são usados ​​(ou seja, quando um método é chamado), 
+ * e o escopo atua como um cache de valores inicializados.
  */
 
 @RefreshScope
