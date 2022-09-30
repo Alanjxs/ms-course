@@ -10,6 +10,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * Feign é uma forma alternativa de comunicar um projeto com outro e 
  * já está integrado com outras ferramentas do spring cloud
  * Usando a @EnableFeignClients o projeto já fica apto a trabalhar com feign desde que seja acrescido a dependência tb.
+ * @EnableEurekaClient - O eureka já vem com balaceamento de carga integrado a ele.
  */
 
 @EnableCircuitBreaker
