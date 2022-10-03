@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.devsuperior.hroauth.entities.User;
 import com.devsuperior.hroauth.services.UserService;
 
+/*
+ * Classe para testar no postman
+ */
 @RestController
 @RequestMapping(value = "/users")
 public class UserResource {
@@ -18,6 +21,9 @@ public class UserResource {
 	@Autowired
 	private UserService service;
 	
+	/*
+	 * Criando um endpoint para buscar um usuário
+	 */
 	@GetMapping(value = "/search")
 	public ResponseEntity<User> findByEmail(@RequestParam String email){
 		try{

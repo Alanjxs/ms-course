@@ -7,6 +7,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
+/*
+ * Configuração para trabalhar com JWT
+ */
 @Configuration
 public class AppConfig {
 	
@@ -16,7 +19,7 @@ public class AppConfig {
 	
 	/*
 	 * Criação de um Bean para evitar acessos não autorizado ao sistema
-	 * O BCrypt utiliza o algoritmo hash
+	 * O BCrypt utiliza o algoritmo hash 
 	 */
 	@Bean
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
