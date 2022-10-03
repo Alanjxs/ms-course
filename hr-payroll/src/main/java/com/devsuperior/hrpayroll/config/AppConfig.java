@@ -4,6 +4,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
+/*
+ * Classe de Configuração
+ * Para usar restTemplate
+ * Disponibilizar algumas instâncias de objetos
+ */
+
 @Configuration
 public class AppConfig {
 	

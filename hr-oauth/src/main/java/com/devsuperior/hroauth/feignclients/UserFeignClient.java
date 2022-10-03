@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.devsuperior.hroauth.entities.User;
 
+/*
+ * Componente gerenciado pelo spring
+ * Usando o nome do microserviço com o qual ele vai se comunicar hr-user e o caminho /users
+ */
+
 @Component
 @FeignClient(name = "hr-user", path = "/users")
 public interface UserFeignClient {

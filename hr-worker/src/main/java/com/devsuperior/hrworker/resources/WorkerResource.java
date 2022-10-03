@@ -16,6 +16,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.devsuperior.hrworker.entities.Worker;
 import com.devsuperior.hrworker.repositories.WorkerRepository;
+/*
+ * Resource será criado para poder usar o projeto(API) como webservice
+ * Para funcionar como webservice precisa ter as anotações
+ * @RestController
+ * @RequestMapping(value = "/workers") - caminho padrão deste recurso
+ * @RefreshScope - inicializam quando são usados ​​(ou seja, quando um método é chamado), 
+ * e o escopo atua como um cache de valores inicializados.
+ */
 
 @RefreshScope
 @RestController
@@ -24,7 +32,7 @@ public class WorkerResource {
 	
 	private static Logger logger = LoggerFactory.getLogger(WorkerResource.class);
 	
-	/* Recber informarções do Github
+	/* Receber informações do Github
 	@Value("${test.config}")
 	private String testConfig;
 	*/
@@ -33,7 +41,7 @@ public class WorkerResource {
 	private Environment env;
 	
 	@Autowired
-	private WorkerRepository repository;
+	private WorkerRepository repository;//Injetar uma dependência usando o framework através do @Autowired
 	
 	@GetMapping(value = "/configs") //Criação de um subcaminho para chamar no postman
 	public ResponseEntity<Void> getConfigs() {
@@ -43,10 +51,11 @@ public class WorkerResource {
 	
 	@GetMapping
 	public ResponseEntity<List<Worker>> findAll() {
-		List<Worker> list = repository.findAll();
+		List<Worker> list = repository.findAll(); //Busca todos os registros no BD e instancia a lista
 		return ResponseEntity.ok(list);
 	}	
 	
+	//Passando argumento pela requisição digitada na url
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Worker> findById(@PathVariable Long id) {
 		/*

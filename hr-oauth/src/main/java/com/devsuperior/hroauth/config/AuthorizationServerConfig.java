@@ -38,8 +38,12 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	@Override
 	public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
 		security.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()");
+		//Comando que vai dar permissão se estiver autenticado
 	}
 
+	//Método para configurar minha autenticação e autorização com base nas credencias do app do cliente
+	//e também para configurar com o tipo do GrantType
+	//86400 são 24 horas
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		clients.inMemory()
@@ -50,6 +54,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 		.accessTokenValiditySeconds(86400);
 	}
 
+	//Configurar o processamento do token
 	@Override
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
 		endpoints.authenticationManager(authenticationManager)

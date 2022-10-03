@@ -24,6 +24,10 @@ public class UserResource {
 		return ResponseEntity.ok(obj);
 	}
 
+	/*
+	 * O "/search" será para passar o valor a ser pesquisado
+	 * @RequestParam é aquele atributo que você coloca o ? e depois o valor a ser pesquisado 
+	 */
 	@GetMapping(value = "/search")
 	public ResponseEntity<User> findByEmail(@RequestParam String email) {
 		User obj = repository.findByEmail(email);
