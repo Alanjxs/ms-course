@@ -27,7 +27,7 @@ public class User implements Serializable{
 	private String name;
 	
 	@Column(unique = true)
-	private String email;
+	private String email;// Com esta notation @Column o unique mostra que o email não pode se repetir, ou seja, é único.
 	private String password;
 	
 	//Set no java representa um conjunto e não aceita repetição dop mesmo valor
