@@ -51,14 +51,19 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
 		http.cors().configurationSource(corsConfigurationSource());
 	}
 	
-	
+	/*
+	 * CORS - recuros dos navegadores tem para evitar quem uma aplicação de um domínio diferente 
+	 * possa acessar a aplicação de outro domínio. Uma medida de segurança
+	 * Como vamos trabalhar com microserviços e eventualmente será acessado por uma outra aplicação
+	 * Então precisamo liberar este CORS
+	 */
 	@Bean
 	public CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration corsConfig = new CorsConfiguration();
-		corsConfig.setAllowedOrigins(Arrays.asList("*"));
-		corsConfig.setAllowedMethods(Arrays.asList("POST", "GET", "PUT", "DELETE", "PATCH"));
-		corsConfig.setAllowCredentials(true);
-		corsConfig.setAllowedHeaders(Arrays.asList("Authorization", "Content-tyoe"));
+		corsConfig.setAllowedOrigins(Arrays.asList("*"));//Qualquer origem pode acessar o meu sistema
+		corsConfig.setAllowedMethods(Arrays.asList("POST", "GET", "PUT", "DELETE", "PATCH"));//Quais métodos http serão permitidos
+		corsConfig.setAllowCredentials(true);//Permitir credenciais
+		corsConfig.setAllowedHeaders(Arrays.asList("Authorization", "Content-tyoe"));//Quais cabeçalhos serão permitidos
 		
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		source.registerCorsConfiguration("/**", corsConfig);
